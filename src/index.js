@@ -2,10 +2,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('Hello World!!! Nascar rocks');
-});
+const userRouter = require('./routers/userRouter');
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
-});
+// app.get('/', (req, res) => {
+//   res.send('Hello World!!! Nascar!');
+// });
+app.use('/', userRouter);
+app.use('/items', userRouter);
+
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`);
+// });
